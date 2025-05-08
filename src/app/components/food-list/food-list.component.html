@@ -1,0 +1,10 @@
+<input [(ngModel)]="searchTerm" (input)="search()" placeholder="Search...">
+    <div *ngIf="foods.length; else noData">
+      <app-food-item *ngFor="let food of foods"
+                     [food]="food"
+                     (like)="like($event)"
+                     (order)="addToOrder($event)"></app-food-item>
+    </div>
+    <ng-template #noData>
+      <p>No items found</p>
+    </ng-template>
